@@ -15,7 +15,7 @@ export default function App() {
   return (
     <div>
       <div className="absolute top-3 right-3">
-        <Toggle enabled={isDark} onChange={toggleTheme} startLabel="Dark Mode" />
+        <Toggle enabled={isDark} onChange={toggleTheme} />
       </div>
       <Routes>
         <Route path="/" element={<Root />} />
