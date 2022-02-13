@@ -1,6 +1,6 @@
-export function InputLabel({ children, ...props }) {
+export function InputLabel({ className, children, ...props }) {
   return (
-    <label className="block text-lg font-medium text-gray-700" {...props}>
+    <label className={`dark:text-gray-300 block text-lg font-medium text-gray-700 ${className}`} {...props}>
       {children}
     </label>
   );

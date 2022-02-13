@@ -45,8 +45,8 @@ export default function MoreInfo() {
           <div className="space-y-4">
             {isLoading ? (
               <div className="animate-pulse">
-                <div className="h-[28px] max-w-[16rem] bg-slate-300 rounded"></div>
-                <div className="h-[38px] bg-slate-300 rounded mt-1"></div>
+                <div className="dark:bg-slate-700 h-[28px] max-w-[16rem] bg-slate-300 rounded"></div>
+                <div className="dark:bg-slate-700 h-[38px] bg-slate-300 rounded mt-1"></div>
               </div>
             ) : (
               <Select label="Select your favourite colour" {...register("color")} required>
@@ -63,10 +63,10 @@ export default function MoreInfo() {
           </div>
         </form>
         <CardActions>
-          <Button variant="outlined" onClick={handleBackOnClick}>
+          <Button className="w-full sm:w-auto" variant="outlined" onClick={handleBackOnClick}>
             Back
           </Button>
-          <Button type="submit" form="additional-info">
+          <Button className="w-full sm:w-auto" type="submit" form="additional-info">
             Next
           </Button>
         </CardActions>

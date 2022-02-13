@@ -21,7 +21,7 @@ export default function Root() {
   return (
     <Container>
       <PageTitle>Sign Up</PageTitle>
-      <Card>
+      <Card className="relative">
         <form id="sign_up" onSubmit={handleSubmit(onSubmit)}>
           <div className="space-y-4">
             <TextInput label="First Name" defaultValue={signUpForm.name} {...register("name")} required />
@@ -30,7 +30,7 @@ export default function Root() {
             <TextInput label="Password" defaultValue={signUpForm.password} {...register("password")} required />
           </div>
           <CardActions>
-            <Button type="submit" form="sign_up">
+            <Button className="w-full sm:w-auto" type="submit" form="sign_up">
               Next
             </Button>
           </CardActions>

@@ -6,8 +6,8 @@ import { PageTitle } from "components/PageTitle";
 import { useLocalStorage } from "hooks/useLocalStorage";
 import { useSignUp } from "hooks/useSignUp";
 import { PartyPopper } from "components/PartyPopper";
-import { Notification } from "components/Notification";
-import { NotificationArea } from "components/Notification/NotificationArea";
+import { Notification, NotificationArea } from "components/Notification";
+import { DescriptionList, DescriptionListItem, DescriptionTerm, DescriptionDetails } from "components/DescriptionList";
 import { Spinner } from "components/Spinner";
 
 export default function Confirmation() {
@@ -37,25 +37,28 @@ export default function Confirmation() {
       <Container>
         <PageTitle>Confirmation</PageTitle>
         <Card>
-          <div className="space-y-4">
-            <ul>
-              <li>
-                <span className="font-bold">First Name:</span> {signUpData.name}
-              </li>
-              <li>
-                <span className="font-bold">E-mail:</span> {signUpData.email}
-              </li>
-              <li>
-                <span className="font-bold">Password:</span> {signUpData.password}
-              </li>
-              <li>
-                <span className="font-bold">Favourite Colour:</span> {additionalInfoData.color}
-              </li>
-              <li>
-                <span className="font-bold">Terms and Conditions:</span> {additionalInfoData.terms ? "Agreed" : "Declined"}
-              </li>
-            </ul>
-          </div>
+          <DescriptionList>
+            <DescriptionListItem>
+              <DescriptionTerm>First Name</DescriptionTerm>
+              <DescriptionDetails>{signUpData.name}</DescriptionDetails>
+            </DescriptionListItem>
+            <DescriptionListItem>
+              <DescriptionTerm>Email</DescriptionTerm>
+              <DescriptionDetails>{signUpData.email}</DescriptionDetails>
+            </DescriptionListItem>
+            <DescriptionListItem>
+              <DescriptionTerm>Password</DescriptionTerm>
+              <DescriptionDetails>{signUpData.password}</DescriptionDetails>
+            </DescriptionListItem>
+            <DescriptionListItem>
+              <DescriptionTerm>Favourite Colour</DescriptionTerm>
+              <DescriptionDetails>{additionalInfoData.color}</DescriptionDetails>
+            </DescriptionListItem>
+            <DescriptionListItem>
+              <DescriptionTerm>Terms and Conditions</DescriptionTerm>
+              <DescriptionDetails>{additionalInfoData.terms ? "Agreed" : "Declined"}</DescriptionDetails>
+            </DescriptionListItem>
+          </DescriptionList>
           <CardActions>
             <Button className="w-full sm:w-auto" variant="outlined" onClick={handleBackOnClick}>
               Back

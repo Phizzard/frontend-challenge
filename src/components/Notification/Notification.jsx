@@ -17,7 +17,7 @@ export function Notification({ show, as = Fragment, title, text, icon, onClose, 
       {...props}
     >
       <div
-        className={`border-l-[6px] border-l-indigo-500 max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden ${className}`}
+        className={`border-l-[6px] border-l-cyan-500 max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden ${className}`}
       >
         <div className="p-4">
           <div className="flex items-center">
@@ -30,7 +30,7 @@ export function Notification({ show, as = Fragment, title, text, icon, onClose, 
             {onClose && (
               <div className="ml-4 flex-shrink-0 flex">
                 <button
-                  className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
                   onClick={onClose}
                 >
                   <span className="sr-only">Close</span>
