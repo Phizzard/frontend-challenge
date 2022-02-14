@@ -1,7 +1,7 @@
 import ky from "ky";
 
 export const signUp = async (body) => {
-  const response = await ky.post("http://localhost:3001/api/submit", {
+  const response = await ky.post(`${process.env.REACT_APP_API_URL}/submit`, {
     body: JSON.stringify(body),
     headers: {
       "Content-Type": "application/json",
