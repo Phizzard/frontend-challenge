@@ -1,8 +1,7 @@
 import { Switch } from "@headlessui/react";
-import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 import classNames from "classnames";
 
-export const Toggle = ({ enabled, onChange, startLabel, endLabel }) => {
+export const Toggle = ({ enabled, onChange, startLabel, endLabel, enabledIcon, disabledIcon }) => {
   return (
     <Switch.Group as="div" className="flex items-center">
       {startLabel && (
@@ -25,24 +24,29 @@ export const Toggle = ({ enabled, onChange, startLabel, endLabel }) => {
             "pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
           )}
         >
-          <span
-            className={classNames(
-              enabled ? "opacity-0 ease-out duration-100" : "opacity-100 ease-in duration-200",
-              "absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
-            )}
-            aria-hidden="true"
-          >
-            <SunIcon className="text-yellow-300" />
-          </span>
-          <span
-            className={classNames(
-              enabled ? "opacity-100 ease-in duration-200" : "opacity-0 ease-out duration-100",
-              "absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
-            )}
-            aria-hidden="true"
-          >
-            <MoonIcon className="text-yellow-300" />
-          </span>
+          {disabledIcon && (
+            <span
+              className={classNames(
+                enabled ? "opacity-0 ease-out duration-100" : "opacity-100 ease-in duration-200",
+                "absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+              )}
+              aria-hidden="true"
+            >
+              {disabledIcon}
+            </span>
+          )}
+
+          {enabledIcon && (
+            <span
+              className={classNames(
+                enabled ? "opacity-100 ease-in duration-200" : "opacity-0 ease-out duration-100",
+                "absolute inset-0 h-full w-full flex items-center justify-center transition-opacity"
+              )}
+              aria-hidden="true"
+            >
+              {enabledIcon}
+            </span>
+          )}
         </span>
       </Switch>
       {endLabel && (

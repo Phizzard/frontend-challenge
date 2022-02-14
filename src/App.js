@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { SunIcon, MoonIcon } from "@heroicons/react/solid";
 import Root from "routes/Root";
 import MoreInfo from "routes/MoreInfo";
 import Confirmation from "routes/Confirmation";
@@ -14,8 +15,13 @@ export default function App() {
 
   return (
     <div>
-      <div className="absolute top-3 right-3">
-        <Toggle enabled={isDark} onChange={toggleTheme} />
+      <div className="flex justify-end p-4">
+        <Toggle
+          enabled={isDark}
+          onChange={toggleTheme}
+          enabledIcon={<MoonIcon className="text-yellow-300" />}
+          disabledIcon={<SunIcon className="text-yellow-300" />}
+        />
       </div>
       <Routes>
         <Route path="/" element={<Root />} />
