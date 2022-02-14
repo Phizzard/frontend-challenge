@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Button } from "components/Button";
@@ -8,10 +9,11 @@ import { PageTitle } from "components/PageTitle";
 import { useColours } from "hooks/useColours";
 import { Checkbox } from "components/Checkbox";
 import { useLocalStorage } from "hooks/useLocalStorage";
-import { useEffect } from "react";
+import { useQueryParams } from "hooks/useQueryParams";
 
 export default function MoreInfo() {
   const navigate = useNavigate();
+  const queryParams = useQueryParams();
   const { register, handleSubmit, reset, getValues } = useForm();
   const [additionalInfo, setAdditionalInfo] = useLocalStorage("additional_info_form", {});
   const { data, isLoading } = useColours();
@@ -30,6 +32,12 @@ export default function MoreInfo() {
       return;
     }
     setAdditionalInfo({ ...additionalInfo, ...data });
+
+    if (queryParams.get("update") === "true") {
+      navigate("/confirmation");
+      return;
+    }
+
     navigate("/confirmation");
   };
 
