@@ -1,7 +1,8 @@
 exports.handler = async (event, context) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const { name, email, password, color, terms } = req.body;
+      const { name, email, password, color, terms } = querystring.parse(event.body);
+
       if (name && email && password && color && terms && name !== "Error") {
         resolve({
           statusCode: 200,
