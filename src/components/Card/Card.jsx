@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Card = React.forwardRef(({ children, className, ...props }, ref) => {
+export const Card = React.forwardRef(({ children, className = "", ...props }, ref) => {
   return (
     <div
       ref={ref}
