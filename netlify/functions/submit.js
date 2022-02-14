@@ -1,7 +1,7 @@
 exports.handler = async (event, context) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const { name, email, password, color, terms } = event.body;
+      const { name, email, password, color, terms } = JSON.parse(event.body);
 
       if (name && email && password && color && terms && name !== "Error") {
         resolve({
