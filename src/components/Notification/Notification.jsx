@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import { Transition } from "@headlessui/react";
-import { CheckCircleIcon } from "@heroicons/react/outline";
 import { XIcon } from "@heroicons/react/solid";
 
-export function Notification({ show, as = Fragment, title, text, icon, onClose, className, ...props }) {
+export function Notification({ show, as = Fragment, title, text, icon, onClose, className = "", ...props }) {
   return (
     <Transition
       show={show}
@@ -17,20 +16,20 @@ export function Notification({ show, as = Fragment, title, text, icon, onClose, 
       {...props}
     >
       <div
-        className={`border-l-[6px] border-l-cyan-500 max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden ${className}`}
+        className={`border-l-[6px] border-l-cyan-500 max-w-sm w-full bg-white dark:border-l-cyan-400 dark:bg-slate-800 dark:shadow-slate-700 dark:shadow-sm shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden ${className}`}
       >
         <div className="p-4">
           <div className="flex items-center">
             {icon && <div className="flex-shrink-0">{icon}</div>}
 
             <div className="ml-3 w-0 flex-1 pt-0.5">
-              {title && <p className="text-base font-medium text-gray-900">{title}</p>}
-              {text && <p className="mt-1 text-base text-gray-500">{text}</p>}
+              {title && <p className="text-base font-medium text-gray-900 dark:text-gray-200">{title}</p>}
+              {text && <p className="mt-1 text-base text-gray-500 dark:text-gray-400">{text}</p>}
             </div>
             {onClose && (
               <div className="ml-4 flex-shrink-0 flex">
                 <button
-                  className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500"
+                  className="bg-white dark:bg-slate-800 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none dark:ring-offset-slate-800 focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 dark:focus:ring-cyan-400"
                   onClick={onClose}
                 >
                   <span className="sr-only">Close</span>
