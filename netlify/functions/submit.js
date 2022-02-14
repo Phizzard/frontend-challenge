@@ -9,7 +9,10 @@ exports.handler = async (event, context) => {
       } else {
         resolve({
           statusCode: 400,
-          body: { error: "All fields are mandatory and the agreement must be accepted", body: { name, email, password, color, terms } },
+          body: JSON.stringify({
+            error: "All fields are mandatory and the agreement must be accepted",
+            body: { name, email, password, color, terms },
+          }),
         });
       }
     }, 3000 * Math.random());
