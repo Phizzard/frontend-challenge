@@ -1,3 +1,5 @@
+const querystring = require("querystring");
+
 exports.handler = async (event, context) => {
   return new Promise((resolve) => {
     setTimeout(() => {
