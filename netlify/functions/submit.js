@@ -1,9 +1,7 @@
-const querystring = require("querystring");
-
 exports.handler = async (event, context) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const { name, email, password, color, terms } = querystring.parse(event.body);
+      const { name, email, password, color, terms } = event.body;
 
       if (name && email && password && color && terms && name !== "Error") {
         resolve({
@@ -14,7 +12,7 @@ exports.handler = async (event, context) => {
           statusCode: 400,
           body: JSON.stringify({
             error: "All fields are mandatory and the agreement must be accepted",
-            body: { name, email, password, color, terms },
+            body: event.body,
           }),
         });
       }
