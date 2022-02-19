@@ -22,7 +22,7 @@ export default function MoreInfo() {
     if (data) {
       reset({
         ...getValues(),
-        favouriteColour: additionalInfo.color,
+        color: additionalInfo.color,
       });
     }
   }, [data]);
